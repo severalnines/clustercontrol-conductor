@@ -1,0 +1,20 @@
+{
+  "infra_provider": "vmware",
+  "plan": "startup_1c_2gb_40gb",
+  "nodes": 1,
+  "vcpus": 1,
+  "ram": 2,
+  "volume_size": 40,
+  "cluster_name": "mysql-replication",
+  "cluster_type": "replication",
+  "vendor": "percona",
+  "version": "8.0",
+  "port": 3306,
+  "admin_user": "root",
+  "admin_pw": "u5iw9sTv$qU2$",
+  "infra_providers": [
+    {
+      "provider": "vmware"
+    }
+  ]
+}

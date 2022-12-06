@@ -1,0 +1,49 @@
+{
+  "name": "create_vmware_infra_workflow",
+  "description": "A workflow to procure infrastructure form vmware.",
+  "version": 1,
+  "schemaVersion": 2,
+  "tasks": [
+    {
+      "name": "procure_infra_task",
+      "taskReferenceName": "procure_infra_task_ref",
+      "inputParameters": {
+        "cluster_name": "${workflow.input.cluster_name}",
+        "infra_provider": "${workflow.input.infra_provider}",
+        "infra_providers": "${workflow.input.infra_providers}",
+        "plan": "${workflow.input.plan}",
+        "nodes": "${workflow.input.nodes}",
+        "vcpus": "${workflow.input.vcpus}",
+        "ram": "${workflow.input.ram}",
+        "volume_size": "${workflow.input.volume_size}",
+        "tags": "${workflow.input.cluster_name}"
+      },
+      "type": "SIMPLE"
+    }
+  ],
+  "inputParameters": [],
+  "outputParameters": {
+    "hosts": "${procure_infra_task_ref.output.hosts}"
+  },
+  "failureWorkflow": "deploy_infra_issues",
+  "restartable": true,
+  "workflowStatusListenerEnabled": true,
+  "ownerEmail": "prem@severalnines.com",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0,
+  "variables": {},
+  "inputTemplate": {
+    "plan": "Startup_1c_2gb",
+    "nodes": 1,
+    "vcpus": 1,
+    "ram": 2,
+    "volume_size": 40,
+    "infra_provider": "vmware",
+    "infra_providers": [
+      {
+        "provider": "vmware"
+      }
+    ],
+    "cluster_name": "conductor-cluster"
+  }
+}

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.severalnines</groupId>
+    <artifactId>clustercontrol-conductor</artifactId>
+    <version>1.0.0</version>
+    <name>clustercontrol-conductor</name>
+    <url>https://www.severalnines.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- logging -->
+        <slf4j.version>2.0.3</slf4j.version>
+        <opentelemetry.version>1.19.0</opentelemetry.version>
+        <logback.version>1.4.4</logback.version>
+        <!-- netflix conductor -->
+        <netflix-conductor.version>3.13.2</netflix-conductor.version>
+        <!-- Vultr API -->
+        <vultr-api.version>2.0.1</vultr-api.version>
+        <!-- Severalnines API -->
+        <clustercontrol-api.version>1.0.0</clustercontrol-api.version>
+        <clustercontrol-api-abstraction.version>1.0.0</clustercontrol-api-abstraction.version>
+        <!-- VMware java sdk -->
+        <vmware-automation-sdk-java.version>8.0.0.1</vmware-automation-sdk-java.version>
+        <!-- AWS java SDK libs -->
+        <aws-sdk-bom.version>2.18.12</aws-sdk-bom.version>
+        <!-- severalnines conductor -->
+        <cc-conductor.version>1.0.0</cc-conductor.version>
+        <javax-ws-rs-api.version>2.1.1</javax-ws-rs-api.version>
+        <!-- Test -->
+        <junit-jupiter-version>5.9.1</junit-jupiter-version>
+        <junit.version>4.13.2</junit.version>
+    </properties>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>vultr-api</module>
+        <module>cc-conductor</module>
+        <module>cc-conductor-package</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- General Logging dependencies -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-api</artifactId>
+                <version>${opentelemetry.version}</version>
+            </dependency>
+
+            <!-- Netflix conductor -->
+            <dependency>
+                <groupId>com.netflix.conductor</groupId>
+                <artifactId>conductor-common</artifactId>
+                <version>${netflix-conductor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.conductor</groupId>
+                <artifactId>conductor-client</artifactId>
+                <version>${netflix-conductor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax-ws-rs-api.version}</version>
+            </dependency>
+
+            <!-- Severalnines clustercontrol conductor -->
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>cc-conductor</artifactId>
+                <version>${cc-conductor.version}</version>
+            </dependency>
+
+            <!-- Vultr API -->
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>vultr-api</artifactId>
+                <version>${vultr-api.version}</version>
+            </dependency>
+
+            <!-- Severalnines API -->
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>clustercontrol-api</artifactId>
+                <version>${clustercontrol-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>clustercontrol-api-abstraction</artifactId>
+                <version>${clustercontrol-api-abstraction.version}</version>
+            </dependency>
+
+            <!-- VMware java sdk -->
+            <dependency>
+                <groupId>com.vmware</groupId>
+                <artifactId>vsphere-samples-nodeps</artifactId>
+                <version>${vmware-automation-sdk-java.version}</version>
+            </dependency>
+
+            <!-- AWS java SDK libs -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws-sdk-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Test -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit-jupiter-version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
+                    <!--
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                    -->
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.12.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

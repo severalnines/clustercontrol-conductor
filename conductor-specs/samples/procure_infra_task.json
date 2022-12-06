@@ -1,0 +1,43 @@
+{
+  "name": "procure_infra_task",
+  "description": "The task to procure infrastructure",
+  "retryCount": 0,
+  "inputKeys": [
+    "cluster_name",
+    "infra_provider",
+    "infra_providers",
+    "plan",
+    "nodes",
+    "vcpus",
+    "ram",
+    "volume_size",
+    "tags"
+  ],
+  "outputKeys": [
+    "hosts"
+  ],
+  "timeoutSeconds": 0,
+  "timeoutPolicy": "TIME_OUT_WF",
+  "retryLogic": "FIXED",
+  "retryDelaySeconds": 60,
+  "responseTimeoutSeconds": 3600,
+  "inputTemplate": {
+    "cluster_name": "mysql-replication",
+    "infra_provider": "vmware",
+    "infra_providers": [
+      {
+        "provider": "vmware"
+      }
+    ],
+    "plan": "Startup_1c_2gb",
+    "nodes": 1,
+    "vcpu": 1,
+    "ram": 2,
+    "volume_size": 40,
+    "tags": "mysql-replication"
+  },
+  "rateLimitPerFrequency": 0,
+  "rateLimitFrequencyInSeconds": 1,
+  "ownerEmail": "prem@severalnines.com",
+  "backoffScaleFactor": 1
+}

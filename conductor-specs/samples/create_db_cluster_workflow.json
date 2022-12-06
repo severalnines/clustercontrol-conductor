@@ -1,0 +1,73 @@
+{
+  "name": "create_database_cluster",
+  "description": "A workflow to procure infrastructure form vmware and then deploy a specified DB cluster on that infra.",
+  "version": 1,
+  "schemaVersion": 2,
+  "tasks": [
+    {
+      "name": "procure_infra_task",
+      "taskReferenceName": "procure_infra_task_ref",
+      "inputParameters": {
+        "cluster_name": "${workflow.input.cluster_name}",
+        "infra_provider": "${workflow.input.infra_provider}",
+        "infra_providers": "${workflow.input.infra_providers}",
+        "plan": "${workflow.input.plan}",
+        "nodes": "${workflow.input.nodes}",
+        "vcpus": "${workflow.input.vcpus}",
+        "ram": "${workflow.input.ram}",
+        "volume_size": "${workflow.input.volume_size}",
+        "tags": "${workflow.input.cluster_name}"
+      },
+      "type": "SIMPLE"
+    },
+    {
+      "name": "deploy_db_cluster_task",
+      "taskReferenceName": "deploy_db_cluster_task_ref",
+      "inputParameters": {
+        "plan": "${workflow.input.plan}",
+        "nodes": "${workflow.input.nodes}",
+        "cluster_name": "${workflow.input.cluster_name}",
+        "cluster_type": "${workflow.input.cluster_type}",
+        "vendor": "${workflow.input.vendor}",
+        "version": "${workflow.input.version}",
+        "port": "${workflow.input.port}",
+        "admin_user": "${workflow.input.admin_user}",
+        "admin_pw": "${workflow.input.admin_pw}",
+        "hosts": "${procure_infra_task_ref.output.hosts}"
+      },
+      "type": "SIMPLE"
+    }
+  ],
+  "inputParameters": [],
+  "outputParameters": {
+    "cluster_id": "${deploy_db_cluster_task_ref.output.cluster_id}",
+    "controller_id": "${deploy_db_cluster_task_ref.output.controller_id}"
+  },
+  "failureWorkflow": "deploy_database_issues",
+  "restartable": true,
+  "workflowStatusListenerEnabled": true,
+  "ownerEmail": "prem@severalnines.com",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0,
+  "variables": {},
+  "inputTemplate": {
+    "plan": "Startup_1c_2gb",
+    "nodes": 1,
+    "vcpus": 1,
+    "ram": 2,
+    "volume_size": 40,
+    "infra_provider": "vmware",
+    "infra_providers": [
+      {
+        "provider": "vmware"
+      }
+    ],
+    "cluster_name": "conductor-cluster",
+    "cluster_type": "replication",
+    "vendor": "Percona",
+    "version": "8.0",
+    "port": 3306,
+    "admin_user": "root",
+    "admin_pw": "u5iw9sTv$qU2$"
+  }
+}
