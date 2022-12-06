@@ -1,6 +1,8 @@
 # ClusterControl for Conductor - Orchestrating database deployment using ClusterControl and Netflix Conducor
 Facets of database automation and lifecycle management in hybrid and multi-cloud environments using ClusterControl and Netflix Conductor.
+
 Part I  - Procuring infrastructure from VMware, AWS, GCP, Azure, Vultr, DigitalOcean, etc
+
 Part II - Database automation by ClusterControl
 
 The glu, i.e., the orchestration of the different parts is accomplished using Conductor (Orchestrator)
