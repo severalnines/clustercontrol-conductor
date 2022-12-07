@@ -123,7 +123,7 @@ Here's the workflow to accomplish the overall goal of deploying a database on th
   "failureWorkflow": "deploy_database_issues",
   "restartable": true,
   "workflowStatusListenerEnabled": true,
-  "ownerEmail": "prem@severalnines.com",
+  "ownerEmail": "yourname@example.com",
   "timeoutPolicy": "ALERT_ONLY",
   "timeoutSeconds": 0,
   "variables": {},
@@ -194,7 +194,7 @@ Here's the definition for the task that will procure a VM from VMware vSphere.
   },
   "rateLimitPerFrequency": 0,
   "rateLimitFrequencyInSeconds": 1,
-  "ownerEmail": "prem@severalnines.com",
+  "ownerEmail": "yourname@example.com",
   "backoffScaleFactor": 1
 }
    ````
@@ -246,7 +246,7 @@ Here's the definition for the task that will deploy a MySQL database on the VM p
   },
   "rateLimitPerFrequency": 0,
   "rateLimitFrequencyInSeconds": 1,
-  "ownerEmail": "prem@severalnines.com",
+  "ownerEmail": "yourname@example.com",
   "backoffScaleFactor": 1
 }
    ````
@@ -254,7 +254,7 @@ Here's the definition for the task that will deploy a MySQL database on the VM p
 ### Setting up conductor workflow and tasks
 Now run the application developed here that will in essence be the backing software to accomplish the tasks in the Conductor workflow defined above.
 
-First setup the appropriate secrets as environment variables:
+First, setup the appropriate secrets as environment variables:
 For VMware:
    ```` bash
    export VMWARE_API_SERVER="10.63.1.215"
