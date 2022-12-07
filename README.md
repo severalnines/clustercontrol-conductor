@@ -38,7 +38,7 @@ Apache Maven is required to build software from this repository. Here are instru
 ### Setting up VMware Java SDK
 VMware client SDK for Java is required to build and run software from this repository. Here are instructions on how to set it up.
    ```` bash
-   git clone https://github.com/premnalla/vsphere-automation-sdk-java.git
+   git clone https://github.com/vmware/vsphere-automation-sdk-java.git
    cd vsphere-automation-sdk-java
    mvn initialize
    mvn -DskipTests clean install
