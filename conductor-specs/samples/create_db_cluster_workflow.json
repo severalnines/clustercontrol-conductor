@@ -46,7 +46,7 @@
   "failureWorkflow": "deploy_database_issues",
   "restartable": true,
   "workflowStatusListenerEnabled": true,
-  "ownerEmail": "prem@severalnines.com",
+  "ownerEmail": "yourname@example.com",
   "timeoutPolicy": "ALERT_ONLY",
   "timeoutSeconds": 0,
   "variables": {},

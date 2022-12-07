@@ -38,6 +38,6 @@
   },
   "rateLimitPerFrequency": 0,
   "rateLimitFrequencyInSeconds": 1,
-  "ownerEmail": "prem@severalnines.com",
+  "ownerEmail": "yourname@example.com",
   "backoffScaleFactor": 1
 }

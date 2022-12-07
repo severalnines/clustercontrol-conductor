@@ -21,3 +21,48 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+
+# Miscellaneus
+.DS_Store
+.go
+
+# Log file
+*.log
+
+# IDEs
+.idea
+
+# Test binary, built with `go test -c`
+*.test
+
+# exclude jar for gradle wrapper
+!gradle/wrapper/*.jar
+
+# build files
+#**/target
+target
+.gradle
+build
+
+# Other
+bin
+vendor
+
+# terraform
+.terraform*
+terraform*
+
+#/bin
+#/.go
+#/.container-*
+#/.dockerfile-*
+#/.licenses
+

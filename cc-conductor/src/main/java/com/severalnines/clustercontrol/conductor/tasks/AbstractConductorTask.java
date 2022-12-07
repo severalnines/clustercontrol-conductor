@@ -21,7 +21,7 @@ import com.netflix.conductor.common.metadata.tasks.TaskResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AbstractConductorTask implements Worker {
+public abstract class AbstractConductorTask implements Worker {
 
     private static final Logger logger
             = LoggerFactory.getLogger(AbstractConductorTask.class);
