@@ -253,6 +253,22 @@ Here's the definition for the task that will deploy a MySQL database on the VM p
 
 ### Setting up conductor workflow and tasks
 Now run the application developed here that will in essence be the backing software to accomplish the tasks in the Conductor workflow defined above.
+
+First setup the appropriate secrets as environment variables:
+For VMware:
+   ```` bash
+   export VMWARE_API_SERVER="10.63.1.215"
+   export VMWARE_API_USER="administrator@vsphere.local"
+   export VMWARE_API_PASSWORD="XXXXYYYYZZZZZ"
+   ````
+For ClusterControl:   
+   ```` bash
+   export CC_URL="https://10.63.1.217:9501/v2"
+   export CC_API_USER="the-cc-user"
+   export CC_API_USER_PW="LLLMMMNNN"
+   ````
+
+Finally, start the application in the same terminal:
    ```` bash
    java -cp ./cc-conductor-package/target/cc-conductor-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.conductor.tasks.Main
    ````
