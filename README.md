@@ -252,7 +252,7 @@ Here's the definition for the task that will deploy a MySQL database on the VM p
    ````
 
 ### Setting up conductor workflow and tasks
-Now run the application developed to here that will in essence be the backing software to accomplish the tasks in the Conductor workflow defined above.
+Now run the application developed here that will in essence be the backing software to accomplish the tasks in the Conductor workflow defined above.
    ```` bash
    java -cp ./cc-conductor-package/target/cc-conductor-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.conductor.tasks.Main
    ````
