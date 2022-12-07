@@ -61,6 +61,8 @@ In order to build the software in this repsitory, please run the following comma
    ````
 
 ## Setting up Netflix Conductor
+Instructions on how to setup Netflix Conductor from sources are avaiable at the link below.
+([Building and Running Netflix Conductor from sources](https://conductor.netflix.com/gettingstarted/source.html)]
 
 ## Orchestrate database deployment on VMware
 
